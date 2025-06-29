@@ -25,9 +25,14 @@
 
 ### Install
 
-- `git clone https://github.com/filipemartinsdev/todolist.git`
-- `cd todolist`
+1- `git clone https://github.com/filipemartinsdev/todolist.git`
+
+2- `cd todolist`
+
+### Run
+- Import PSQL Driver;
 - working on it...
+
 
 ### Showcase
 
