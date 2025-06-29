@@ -20,7 +20,7 @@
 ### Requisites
 
 - Java 17+
-- PostgreSQL 16+
+- PostgreSQL 14+
 - Git
 
 ### Install
