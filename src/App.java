@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class App {
     protected static final String JDBC_URL = "jdbc:postgresql://localhost:5432/todolist";
     protected static final String DB_USER = "postgres";
-    protected static final String DB_PASSWORD = "";
+    protected static final String DB_PASSWORD = "020407"; // FIXME remove the password
 
     protected static Scanner inputScanner = new Scanner(System.in);
 
