@@ -13,14 +13,16 @@ public class App {
     protected static String currentUser;
 
     public static void init(){
+        printBanner();
         while(!isLogged){
             homeOptionsPrinter();
 
-            System.out.print("> ");
+            System.out.print("   > ");
             int input = inputScanner.nextInt();
             inputScanner.nextLine();
 
             homeOptionsHandler(input);
+            System.out.println();
         }
 
         LoggedApp currentLogin = new LoggedApp(currentUser, getUserID(currentUser));
@@ -52,14 +54,9 @@ public class App {
 //    private static void inputHandler(String input){}
 
     private static void homeOptionsPrinter(){
-        System.out.println("\n+------------+");
-        System.out.println("| TO DO LIST |");
-        System.out.println("+------------+");
-
-        System.out.println("What to do? ");
-        System.out.println("[1] Login");
-        System.out.println("[2] Create account");
-        System.out.println("[3] Exit");
+        System.out.println("    [1] Login");
+        System.out.println("    [2] Create account");
+        System.out.println("    [3] Exit");
     }
 
     private static void homeOptionsHandler(int option){
@@ -104,7 +101,17 @@ public class App {
                         System.out.println("User created!");
                     }
                 }
-                return;
         }
+    }
+
+    protected static void printBanner(){
+        System.out.println(
+                " _____           _         _     _     _   \n" +
+                        "|_   _|         | |       | |   (_)   | |  \n" +
+                        "  | | ___     __| | ___   | |    _ ___| |_ \n" +
+                        "  | |/ _ \\   / _` |/ _ \\  | |   | / __| __|\n" +
+                        "  | | (_) | | (_| | (_) | | |___| \\__ \\ |_ \n" +
+                        "  \\_/\\___/   \\__,_|\\___/  \\_____/_|___/\\__|"
+        );
     }
 }

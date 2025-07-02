@@ -8,10 +8,8 @@ public class LoggedApp {
     }
 
     public void init() {
-        System.out.println("\n+------------------------+");
-        System.out.println("|       TO DO LIST       |");
-        System.out.println("+------------------------+");
-        System.out.println("Hello, " + this.username + "!");
+        App.printBanner();
+        System.out.println(">> Hello, " + this.username + "!");
 
         int input = 0;
 
@@ -21,21 +19,21 @@ public class LoggedApp {
 
             homeOptionsPrinter();
 
-            System.out.print("> ");
+            System.out.print("   > ");
             input = App.inputScanner.nextInt();
             App.inputScanner.nextLine();
 
             homeOptionsHandler(input);
+            System.out.println();
         }
 
         App.isLogged = false;
     }
 
     private static void homeOptionsPrinter(){
-        System.out.println("What to do? ");
-        System.out.println("[1] Add new task");
-        System.out.println("[2] Finish task");
-        System.out.println("[3] Exit");
+        System.out.println("    [1] Add new task");
+        System.out.println("    [2] Finish task");
+        System.out.println("    [3] Exit");
     }
 
     private void homeOptionsHandler(int option){
