@@ -1,5 +1,7 @@
 package com.todolist;
 
+import java.io.IOException;
+
 public class LoggedApp {
     String username;
     int userID;
@@ -22,8 +24,13 @@ public class LoggedApp {
             homeOptionsPrinter();
 
             System.out.print("   > ");
-            input = App.inputScanner.nextInt();
-            App.inputScanner.nextLine();
+            try {
+                input = App.inputScanner.nextInt();
+                App.inputScanner.nextLine();
+            } catch (RuntimeException e){
+                System.out.println("[ERROR] Invalid input\n");
+                continue;
+            }
 
 //            System.out.println();
             homeOptionsHandler(input);

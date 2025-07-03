@@ -41,6 +41,8 @@ public final class Tasks {
 
 //    --- Standard method to create a task ---
     public static void createTask(String username, int userId, String details){
+        // TODO: use preparedStatement
+        details = App.catchSQLInjection(details);
         try {
             Connection dataBaseConnection = DriverManager.getConnection(App.JDBC_URL, App.DB_USER, App.DB_PASSWORD);
             Statement dataBaseStatement = dataBaseConnection.createStatement();

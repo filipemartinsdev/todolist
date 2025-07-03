@@ -1,6 +1,8 @@
 package com.todolist;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -115,5 +117,27 @@ public class App {
                         "  | | (_) | | (_| | (_) | | |___| \\__ \\ |_ \n" +
                         "  \\_/\\___/   \\__,_|\\___/  \\_____/_|___/\\__|\n"
         );
+    }
+
+//  --- Return a String without possibles SQLInjection ---
+    protected static String catchSQLInjection(String text){
+        StringBuilder strOut = new StringBuilder();
+        char[] inputAsCharArr = text.toCharArray();
+        List<Character> outAsList = new ArrayList<Character>();
+
+        for(char c:inputAsCharArr){
+            if(c == '\'') {
+                outAsList.add('\'');
+                outAsList.add('\'');
+                continue;
+            }
+            outAsList.add(c);
+        }
+
+        for(char c:outAsList){
+            strOut.append(c);
+        }
+
+        return strOut.toString();
     }
 }
