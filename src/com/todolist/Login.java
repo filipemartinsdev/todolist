@@ -1,3 +1,5 @@
+package com.todolist;
+
 import java.sql.*;
 
 public final class Login {
@@ -15,6 +17,7 @@ public final class Login {
             dataBaseConnection.close();
         } catch (SQLException e) {
             System.out.println("[DB ERROR] "+e.getSQLState());
+            throw new RuntimeException(e);
         }
         return exists;
     }

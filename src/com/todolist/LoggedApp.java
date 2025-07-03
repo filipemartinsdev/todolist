@@ -1,3 +1,5 @@
+package com.todolist;
+
 public class LoggedApp {
     String username;
     int userID;
@@ -23,6 +25,7 @@ public class LoggedApp {
             input = App.inputScanner.nextInt();
             App.inputScanner.nextLine();
 
+//            System.out.println();
             homeOptionsHandler(input);
             System.out.println();
         }
