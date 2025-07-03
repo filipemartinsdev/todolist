@@ -42,6 +42,10 @@ public final class Tasks {
 //    --- Standard method to create a task ---
     public static void createTask(String username, int userId, String details){
         // TODO: use preparedStatement
+        if(details.length() > 100) {
+            System.out.println("[ERROR] Too long text");
+            return;
+        }
         details = App.catchSQLInjection(details);
         try {
             Connection dataBaseConnection = DriverManager.getConnection(App.JDBC_URL, App.DB_USER, App.DB_PASSWORD);
