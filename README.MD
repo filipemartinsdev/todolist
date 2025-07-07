@@ -1,23 +1,29 @@
 # To Do List
-> A simple app to list tasks in-terminal.
-***
+> Umapp to-do-list na linha de comando
 
-## About
+## Sobre  
+    Esse projeto me ajudou a aprimorar minhas seguintes habilidades:
+    - CRUD no PostgreSQL com Java;
+    - Design Pattern: Repository Pattern;
+    - Autenticação de usuário simples;
+    - Desaclopamento de código;
+    - Orientação a Objetos;
 
 ### Features
 
-- [x] User CRUD;
-- [x] Add/Remove tasks on real-time;
-- [ ] Run in anywhere (Actually localhost database);
+- [x] Cadastro/Login de usuário;
+- [x] Persistência de dados;
+- [x] Adicionar/remover tarefas em tempo real;
+- [ ] Rodar em qualquer lugar ( atualmente em banco de dados Local );
 
 ### Stack
-- [x] Java Lang
+- [x] Java SE
 - [x] JDBC
 - [x] PostgreSQL
 
 *** 
 
-### Requisites
+## Requisitos
 
 - Java 17+
 - PostgreSQL 14+
@@ -30,8 +36,7 @@
 2- `cd todolist`
 
 ### Run
-- Import PSQL Driver;
-- working on it...
+- Trabalhando nisso...
 
 
 ### Showcase
