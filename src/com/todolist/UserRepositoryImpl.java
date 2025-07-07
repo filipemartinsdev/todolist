@@ -9,7 +9,7 @@ import java.util.Map;
 public class UserRepositoryImpl implements UserRepository {
     private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/todolist";
     private static final String DB_USER = "postgres";
-    private static final String DB_PASSWORD = "020407"; // FIXME remove the password
+    private static final String DB_PASSWORD = ""; // FIXME remove the password
 
     private static Connection dataBaseConnection;
     int userID;
