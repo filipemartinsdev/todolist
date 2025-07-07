@@ -3,23 +3,21 @@ package com.todolist;
 import java.io.IOException;
 
 public class LoggedApp {
-    String username;
-    int userID;
+    private User currentUser;
 
-    public LoggedApp(String user, int ID){
-        this.username = user;
-        this.userID = ID;
+    public LoggedApp(User user){
+        this.currentUser = user;
     }
 
     public void init() {
         App.printBanner();
-        System.out.println(">> Hello, " + this.username + "!");
+        System.out.println(">> Hello, " + this.currentUser.getName() + "!");
 
         int input = 0;
 
         while(input!=3){
 
-            Tasks.printTasks(this.username);
+            Tasks.printTasks(this.currentUser);
 
             homeOptionsPrinter();
 
@@ -47,19 +45,29 @@ public class LoggedApp {
     }
 
     private void homeOptionsHandler(int option){
+        UserRepository userRepository = new UserRepositoryImpl();
         switch (option) {
             case 1:
                 System.out.print("Task: ");
                 String input = App.inputScanner.nextLine();
 
-                Tasks.createTask(this.username, this.userID, input);
+                userRepository.createTask(this.currentUser, input);
+                this.currentUser.updateUserTaskList();
                 break;
             case 2:
                 System.out.print("Task ID: #");
                 int taskID = App.inputScanner.nextInt();
                 App.inputScanner.nextLine();
 
-                Tasks.finishTask(taskID, this.userID);
+                int realTaskId = this.currentUser.getRealTaskId(taskID);
+                if( realTaskId == -1){
+                    System.out.println("[ERROR] Tasks not exists.");
+                    return;
+                }
+                if(userRepository.deleteTask(realTaskId)){
+                    this.currentUser.updateUserTaskList();
+                    System.out.println("Task deleted.");
+                }
                 break;
         }
     }
