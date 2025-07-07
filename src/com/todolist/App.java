@@ -16,8 +16,8 @@ public class App {
 
 
     public static void init(){
-        printBanner();
         while(!isLogged){
+            printBanner();
             homeOptionsPrinter();
 
             System.out.print("   > ");
